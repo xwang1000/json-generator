@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import InputPanel from './InputPanel'
 import ModelPanel from './ModelPanel'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <ModelPanel></ModelPanel>
-        {/* <InputPanel></InputPanel> */}
-      </div>
-    );
-  }
+const App = () => {
+  
+  const updateInputFields = fields => {
+    console.log(fields)
+  } 
+
+  return (
+    <div className="App">
+      <ModelPanel updateInputFields={updateInputFields}></ModelPanel>
+      <InputPanel></InputPanel>
+    </div>
+  )
 }
 
 export default App;

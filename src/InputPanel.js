@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 
-const InputPanel = () => {
-
+const InputPanel = props => {
+  
   return (
-    <form>
-      <label>
-        Chinese
-        <input type="text" name="chinese" />
-      </label>
-
-      <input type="submit" value="Submit" />
-    </form>
+    <div>
+      <h2>Input Panel</h2>
+    </div>
   )
 }
 

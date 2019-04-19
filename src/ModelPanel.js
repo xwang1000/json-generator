@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ModelRow from './ModelRow'
-
-const dataTypes = ['text', 'textarea']
+import DropDown from './DropDown'
 
 const getUniqueIdGenerator = () => {
   let uniqueId = 0
@@ -10,7 +9,8 @@ const getUniqueIdGenerator = () => {
 
 const getUniqueId = getUniqueIdGenerator()
 
-const ModelPanel = () => {
+const ModelPanel = props => {
+  const inputTypes = ['text', 'textarea', 'boolean']
   const [rows, setRows] = useState([
     { 
       id: getUniqueId(),
@@ -23,42 +23,54 @@ const ModelPanel = () => {
       name: 'English'
     }
   ])
+
+  const [inputType, setInputType] = useState('text')
+  const [inputName, setInputName] = useState('')
   
-  const renderRows = () => {
-    return rows.map(row => (
-      <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
-    ))
+  const deleteRow = id => setRows(rows.filter(row => row.id !== id))
+
+  const addRow = row => setRows([...rows, row])
+
+  const handleInputNameChange = e => setInputName(e.target.value)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    const row = {
+      id: getUniqueId(),
+      type: inputType,
+      name: inputName
+    }
+
+    addRow(row)
   }
+
+  const renderRows = () => 
+    rows.map(row => 
+      <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
+    )
+  
 
   const renderInputRow = () => {
     return (
-      <form>
-        <label>
-          type
-          
-        </label>
+      <form onSubmit={handleSubmit}>
+        <DropDown onChange={setInputType} options={inputTypes} />
+        <input type="text" value={inputName} onChange={handleInputNameChange} placeholder="input field name" />
+        <input type="submit" value="+" />
       </form>
     )
   }
 
-  const deleteRow = id => 
-    setRows(rows.filter(row => row.id !== id))
-  
-  const addRow = () => {
-    const newRow = {
-      id: getUniqueId(),
-      type: 'text',
-      name: 'origin'
-    }
-    setRows([...rows, newRow])
-  }
-
   return (
     <div>
-      Model Panel
+      <h2>
+        Model Panel
+      </h2>
       {renderInputRow()}
-      <strong onClick={addRow}>+</strong>
+      <h3>fields</h3>
       {renderRows()}
+
+      <p onClick={() => props.updateInputFields(rows)}>generate input fields</p>
     </div>
   )
 }
