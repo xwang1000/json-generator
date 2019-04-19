@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import InputRow from './InputRow'
 
 const InputPanel = props => {
@@ -7,7 +7,7 @@ const InputPanel = props => {
   const renderInputRows = fields.map(field => (
     <InputRow key={field.id} field={field} />
   ))
-  
+
   return (
     <div>
       <h2>Input Panel</h2>
