@@ -4,15 +4,15 @@ import InputPanel from './InputPanel'
 import ModelPanel from './ModelPanel'
 
 const App = () => {
-  
+  const [inputFields, setInputFields] = useState([])
   const updateInputFields = fields => {
-    console.log(fields)
+    setInputFields(fields)
   } 
 
   return (
     <div className="App">
       <ModelPanel updateInputFields={updateInputFields}></ModelPanel>
-      <InputPanel></InputPanel>
+      <InputPanel fields={inputFields} ></InputPanel>
     </div>
   )
 }
