@@ -21,6 +21,11 @@ const ModelPanel = props => {
       id: getUniqueId(),
       type: 'text',
       name: 'English'
+    },
+    {
+      id: getUniqueId(),
+      type: 'boolean',
+      name: 'Modern'
     }
   ])
 
@@ -70,7 +75,7 @@ const ModelPanel = props => {
       <h3>fields</h3>
       {renderRows()}
 
-      <p onClick={() => props.updateInputFields(rows)}>generate input fields</p>
+      <button onClick={() => props.updateInputFields(rows)}>generate input fields</button>
     </div>
   )
 }
