@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const InputRow = props => {
-  const { name, type} = props.field
-  const [value, setValue] = useState('')
+  const { name, type } = props.field
+  const [value, setValue] = useState(type === "boolean" ? false : '')
+
+  useEffect(() => {
+    props.updateInput(value)
+  }, [])
 
   const handleChange = value => {
     setValue(value)
-
-    props.updateInput({
-      name,
-      value
-    })
+    props.updateInput(value)
   }
 
   const renderInputBox = () => {

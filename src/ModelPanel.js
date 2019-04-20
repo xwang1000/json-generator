@@ -32,10 +32,13 @@ const ModelPanel = props => {
   const [inputType, setInputType] = useState('text')
   const [inputName, setInputName] = useState('')
   
-  const deleteRow = id => setRows(rows.filter(row => row.id !== id))
+  const deleteRow = id => 
+    setRows(rows.filter(row => row.id !== id))
 
-  const addRow = row => setRows([...rows, row])
 
+  const addRow = row => 
+    setRows([...rows, row])
+  
   const handleInputNameChange = e => setInputName(e.target.value)
 
   const handleSubmit = e => {
@@ -44,9 +47,9 @@ const ModelPanel = props => {
     const row = {
       id: getUniqueId(),
       type: inputType,
-      name: inputName
+      name: inputName,
     }
-
+    setInputName('')
     addRow(row)
   }
 
@@ -55,7 +58,6 @@ const ModelPanel = props => {
       <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
     )
   
-
   const renderInputRow = () => {
     return (
       <form onSubmit={handleSubmit}>
@@ -72,10 +74,9 @@ const ModelPanel = props => {
         Model Panel
       </h2>
       {renderInputRow()}
-      <h3>fields</h3>
       {renderRows()}
 
-      <button onClick={() => props.updateInputFields(rows)}>generate input fields</button>
+      <button onClick={() => props.setInputFields(rows)}>generate input fields</button>
     </div>
   )
 }

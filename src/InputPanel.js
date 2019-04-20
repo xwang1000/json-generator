@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import InputRow from './InputRow'
 
 const InputPanel = props => {
 
-  const { fields, updateInputFields } = props
+  const { fields, setInputFields } = props
 
-  const renderInputRows = fields.map(field => {
-    const updateInput = inputObject => {
-      field.value = inputObject.value
-      updateInputFields(fields)
+  const renderInputRows = fields.map((field, index) => {
+    const updateInput = value => {
+      const newFields = [...fields]
+      newFields[index].value = value
+      setInputFields(newFields)
     }
     
     return <InputRow key={field.id} field={field} updateInput={updateInput} />
@@ -19,7 +20,6 @@ const InputPanel = props => {
       <h2>Input Panel</h2>
       <form>
         {renderInputRows}
-        {/* <input type="submit" value="Submit Object" /> */}
       </form>
     </div>
   )
