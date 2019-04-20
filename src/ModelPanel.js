@@ -69,7 +69,7 @@ const ModelPanel = props => {
   }
 
   return (
-    <div>
+    <div className="model-panel">
       <h2>
         Model Panel
       </h2>

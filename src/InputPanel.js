@@ -16,7 +16,7 @@ const InputPanel = props => {
   })
 
   return (
-    <div>
+    <div className="input-panel">
       <h2>Input Panel</h2>
       <form>
         {renderInputRows}
