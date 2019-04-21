@@ -3,7 +3,7 @@ import InputRow from './InputRow'
 
 const InputPanel = props => {
 
-  const { fields, setInputFields } = props
+  const { fields, setInputFields, addObjectToDisplay } = props
 
   const renderInputRows = fields.map((field, index) => {
     const updateInput = value => {
@@ -15,11 +15,17 @@ const InputPanel = props => {
     return <InputRow key={field.id} field={field} updateInput={updateInput} />
   })
 
+  const onSubmit = event => {
+    event.preventDefault()
+    addObjectToDisplay()
+  }
+
   return (
     <div className="input-panel">
       <h2>Input Panel</h2>
-      <form>
+      <form onSubmit={onSubmit}>
         {renderInputRows}
+        <input type="submit" value="add object" />
       </form>
     </div>
   )
