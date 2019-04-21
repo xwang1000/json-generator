@@ -4,9 +4,9 @@ const ModelRow = props => {
   const { type, name,id } = props
 
   return (
-    <div>
-      {type}: {name}
-      <strong onClick={() => props.deleteRow(id)}>-</strong>
+    <div className="model-row" onClick={() => props.deleteRow(id)}>
+      <div className="model-row__type">{type}</div>
+      <div className="model-row__name">{name}</div>
     </div>
   )
 }

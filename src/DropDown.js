@@ -1,4 +1,5 @@
 import React from 'react'
+import './Dropdown.css'
 
 const DropDown = props => {
   const { options, onChange } = props
@@ -10,7 +11,7 @@ const DropDown = props => {
   const handleChange = e => onChange(e.target.value)
 
   return (
-    <select onChange={handleChange}>
+    <select className="dropdown" onChange={handleChange}>
       {renderOptions}
     </select>
   )

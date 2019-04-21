@@ -1,0 +1,15 @@
+.dropdown {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  display: block;
+  font-size: 1.4rem;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 0;
+}
+
+.dropdown:focus {
+  outline: none;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ModelRow from './ModelRow'
 import DropDown from './DropDown'
 import { getArrow } from './utils'
+import './ModelPanel.css'
 
 const getUniqueIdGenerator = () => {
   let uniqueId = 0
@@ -61,10 +62,15 @@ const ModelPanel = props => {
   
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="model-panel__form" onSubmit={handleSubmit}>
         <DropDown onChange={setInputType} options={inputTypes} />
-        <input type="text" value={inputName} onChange={handleInputNameChange} placeholder="input field name" />
-        <input type="submit" value="+" />
+        <input 
+          className="model-panel__form__name" 
+          type="text" 
+          value={inputName} 
+          onChange={handleInputNameChange} 
+          placeholder="create new input field" 
+        />
       </form>
     )
   }
@@ -73,7 +79,12 @@ const ModelPanel = props => {
     <div className="model-panel__body">
       {renderRows()}
       {renderForm()}
-      <button onClick={() => props.setInputFields(rows)}>generate input fields</button>
+      <span
+        className="model-panel__button"
+        onClick={() => props.setInputFields(rows)}
+      >
+        generate input fields
+      </span>
     </div>
   )
 
