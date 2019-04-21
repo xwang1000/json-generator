@@ -21,6 +21,7 @@ h2 {
   flex: 1;
   overflow-y: scroll;
   padding: 0 20px;
+  background-color: #eee;
 }
 
 .app__right {
@@ -31,6 +32,61 @@ h2 {
   padding: 0 20px;
   position: relative;
   overflow-y: scroll;
+}
+
+.model-panel {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 5px;
+}
+
+.app_left h2 {
+  padding: 0;
+  margin: 5px;
+}
+
+.model-panel h2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.model-panel h2:hover {
+  cursor: pointer;
+}
+
+.expandable-panel .arrow {
+  float: right;
+  opacity: .4;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.model-panel__body {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.input-panel {
+  margin: 20px 0;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 5px;
+}
+
+.input-panel__body {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.input-panel__body__waiting {
+  opacity: .5;
+}
+
+.output-panel {
+  padding: 10px;
+  padding-top: 5px;
 }
 
 .result-panel__content {

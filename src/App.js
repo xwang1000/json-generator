@@ -22,8 +22,6 @@ const App = () => {
   }
     
   const deleteDisplayRow = index => {
-    console.log(index)
-    console.log(display)
     const newDisplay = [...display]
     newDisplay.splice(index, 1)
     setDisplay(newDisplay)

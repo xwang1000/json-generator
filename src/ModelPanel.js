@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ModelRow from './ModelRow'
 import DropDown from './DropDown'
+import { getArrow } from './utils'
 
 const getUniqueIdGenerator = () => {
   let uniqueId = 0
@@ -11,6 +12,7 @@ const getUniqueId = getUniqueIdGenerator()
 
 const ModelPanel = props => {
   const inputTypes = ['text', 'textarea', 'boolean']
+  const [isOpen, setIsOpen] = useState(true)
   const [rows, setRows] = useState([
     { 
       id: getUniqueId(),
@@ -57,7 +59,7 @@ const ModelPanel = props => {
       <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
     )
   
-  const renderInputRow = () => {
+  const renderForm = () => {
     return (
       <form onSubmit={handleSubmit}>
         <DropDown onChange={setInputType} options={inputTypes} />
@@ -67,15 +69,20 @@ const ModelPanel = props => {
     )
   }
 
-  return (
-    <div className="model-panel">
-      <h2>
-        Model Panel
-      </h2>
-      {renderInputRow()}
+  const renderBody = (
+    <div className="model-panel__body">
       {renderRows()}
-
+      {renderForm()}
       <button onClick={() => props.setInputFields(rows)}>generate input fields</button>
+    </div>
+  )
+
+  return (
+    <div className="model-panel expandable-panel">
+      <h2 onClick={() => setIsOpen(!isOpen)}>
+        model your input  {getArrow(isOpen)}
+      </h2>
+      {isOpen && renderBody}
     </div>
   )
 }

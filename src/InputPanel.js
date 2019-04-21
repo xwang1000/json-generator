@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputRow from './InputRow'
+import { getArrow } from './utils'
 
 const InputPanel = props => {
-
+  const [isOpen, setIsOpen] = useState(true)
   const { fields, setInputFields, addObjectToDisplay } = props
 
   const renderInputRows = fields.map((field, index) => {
@@ -20,13 +21,29 @@ const InputPanel = props => {
     addObjectToDisplay()
   }
 
+  const renderForm = (
+    <form onSubmit={onSubmit}>
+      {renderInputRows}
+      <input type="submit" value="add object" />
+    </form>
+  )
+
+  const renderEmptyBody = (
+    <p className="input-panel__body__waiting">waiting for input modeling...</p>
+  )
+
+  const renderBody = (
+    <div className="input-panel__body">
+      {fields.length > 0 ? renderForm : renderEmptyBody}
+    </div>
+  )
+
   return (
-    <div className="input-panel">
-      <h2>Input Panel</h2>
-      <form onSubmit={onSubmit}>
-        {renderInputRows}
-        <input type="submit" value="add object" />
-      </form>
+    <div className="input-panel expandable-panel">
+      <h2 onClick={() => setIsOpen(!isOpen)}>
+        plug in your data  {getArrow(isOpen)}
+      </h2>
+      {isOpen && renderBody}
     </div>
   )
 }
