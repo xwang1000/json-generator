@@ -1,4 +1,8 @@
 .app {
+
+}
+
+.panel-wrappers {
   display: flex;
-  background-color: #eee;
+  justify-content: space-between;
 }

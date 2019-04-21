@@ -35,7 +35,6 @@ const ModelPanel = props => {
   const deleteRow = id => 
     setRows(rows.filter(row => row.id !== id))
 
-
   const addRow = row => 
     setRows([...rows, row])
   
