@@ -10,6 +10,7 @@ h1 {
   margin-bottom: 30px;
   margin-left: 7px;
   padding-bottom: 0;
+  opacity: .8;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -22,7 +23,6 @@ h2 {
   font-weight: 300;
   margin-left: 20px;
   color: var(--app-color-main);
-  opacity: .8;
   font-style: italic;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
