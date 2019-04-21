@@ -31,16 +31,16 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>JSON Generator</h1>
-      <p>your best data entry helper</p>
-      <div className="panel-wrappers">
-        <div className="panel-wrappers__col">
+        <div className="app__left">
+          <h1>JSON Generator</h1>
+          <p>your data entry helper</p>
           <ModelPanel setInputFields={setInputFields} />
           <InputPanel setInputFields={setInputFields} addObjectToDisplay={addObjectToDisplay} fields={inputFields} />
+          <OutputPanel fields={inputFields} output={output()} />
         </div>
-        <OutputPanel fields={inputFields} output={output()} />
-        <ResultPanel display={display} clearResults={() => setDisplay([])} deleteDisplayRow={deleteDisplayRow} />
-      </div>
+        <div className="app__right">
+          <ResultPanel display={display} clearResults={() => setDisplay([])} deleteDisplayRow={deleteDisplayRow} />
+        </div>
     </div>
   )
 }

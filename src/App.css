@@ -1,8 +1,72 @@
-.app {
-
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
-.panel-wrappers {
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+.app {
   display: flex;
-  justify-content: space-between;
+}
+
+.app__left {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0 20px;
+}
+
+.app__right {
+  flex: 1;
+  background-color: black;
+  height: 100vh;
+  color: white;
+  padding: 0 20px;
+  position: relative;
+  overflow-y: scroll;
+}
+
+.result-panel__content {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  transition: all .2s ease;
+}
+
+.result-panel__row:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.result-panel__row:active {
+  transform: scale(.99);
+  color: #b50101;
+  transition: all .2s ease;
+}
+
+.options {
+  float: right;
+}
+
+.option {
+  margin: 0 10px;
+  font-size: 1.3rem;
+}
+
+.option:hover {
+  cursor: pointer;
+}
+
+.option.clear:hover{
+  color: red;
+}
+
+.option.copy:hover{
+  color: green;
 }

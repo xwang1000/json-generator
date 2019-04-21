@@ -33,16 +33,31 @@ const ResultPanel = props => {
 
   const renderOptions = () => {
     if (display.length > 0) {
-      return (<p><span onClick={clearResults}>clear</span> <span onClick={copyToClipboard}>copy</span></p>)
+      return (
+        <span className="options">
+          <span 
+            className="option clear"
+            onClick={clearResults}>
+            clear
+          </span>
+          <span 
+            className="option copy"
+            onClick={copyToClipboard}>
+            copy
+          </span>
+        </span>
+      )
     }
   }
   
   return (
     <div className="result-panel">
-      <h2>Records ({display.length})</h2>
-      {renderOptions()}
+      <h2>Records ({display.length}){renderOptions()}</h2>
+
       {copySuccess && 'copied!'}
-      {renderRows()}
+      <div className="result-panel__content">
+        {renderRows()}
+      </div>
     </div>
   )
 }
