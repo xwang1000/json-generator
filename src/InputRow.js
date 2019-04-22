@@ -1,8 +1,19 @@
-import React, { useState, useEffect, Fragment } from 'react'
+import React, { useState, useEffect } from 'react'
+
+const getDefaultValue = type => {
+  switch (type) {
+    case 'boolean':
+      return false
+    case 'number':
+      return NaN
+    default: 
+      return ''
+  }
+}
 
 const InputRow = props => {
   const { name, type } = props.field
-  const [value, setValue] = useState(type === "boolean" ? false : '')
+  const [value, setValue] = useState(getDefaultValue(type))
 
   useEffect(() => {
     props.updateInput(value)
@@ -25,6 +36,10 @@ const InputRow = props => {
             <span>{name}</span>
             <input type="checkbox" value={value} onChange={e => handleChange(e.target.checked)} />  
           </div>
+        )
+      case 'number':
+        return (
+          <input type="number" onChange={e => handleChange(Number(e.target.value))} placeholder={name} />
         )
       default: 
         return `Sorry, cannot find the corresponding input type: ${type}`

@@ -12,7 +12,7 @@ const getUniqueIdGenerator = () => {
 const getUniqueId = getUniqueIdGenerator()
 
 const ModelPanel = props => {
-  const inputTypes = ['text', 'textarea', 'boolean']
+  const inputTypes = ['text', 'textarea', 'boolean', 'number']
   const [isOpen, setIsOpen] = useState(true)
   const [rows, setRows] = useState([
     { 
@@ -69,7 +69,7 @@ const ModelPanel = props => {
           type="text" 
           value={inputName} 
           onChange={handleInputNameChange} 
-          placeholder="create new input field" 
+          placeholder="name of your new input field" 
         />
       </form>
     )
