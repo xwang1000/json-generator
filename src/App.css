@@ -7,25 +7,23 @@ body {
 
 h1 {
   font-weight: 700;
-  margin-bottom: 30px;
-  margin-left: 7px;
-  padding-bottom: 0;
+  font-size: 1.6rem;
   opacity: .8;
   font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 h2 {
   font-weight: 300;
-  margin:0 5px;
 }
 
 .subtitle {
-  font-size: 1.3rem;
-  font-weight: 300;
-  margin-left: 20px;
-  color: var(--app-color-main);
-  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: grey;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  margin-top: 0;
 }
 
 .app {
@@ -35,6 +33,7 @@ h2 {
 .app__left {
   flex: 1;
   overflow-y: scroll;
+  height: 100vh;
   padding: 0 20px;
   background-color: #eee;
 }
@@ -65,10 +64,12 @@ h2 {
 }
 
 .expandable-panel h2 {
+  margin:0 5px;
   opacity: .7;
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  color: var(--app-color-main);
 }
 
 .expandable-panel h2:hover {
@@ -86,19 +87,6 @@ h2 {
 .model-panel__body {
   border-top: 1px solid #eee;
   padding: 10px;
-}
-
-.input-panel {
-  background-color: white;
-}
-
-.input-panel__body {
-  border-top: 1px solid #eee;
-  padding: 10px;
-}
-
-.input-panel__body__waiting {
-  opacity: .5;
 }
 
 .model-panel__form__type {
@@ -159,3 +147,8 @@ h2 {
 .option.copy:hover{
   color: green;
 }
+
+.option.save:hover{
+  color: blue;
+}
+

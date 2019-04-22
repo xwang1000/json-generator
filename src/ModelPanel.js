@@ -79,12 +79,15 @@ const ModelPanel = props => {
     <div className="model-panel__body">
       {renderRows()}
       {renderForm()}
-      <span
-        className="model-panel__button"
-        onClick={() => props.setInputFields(rows)}
-      >
-        generate input fields
-      </span>
+
+      <div className="model-panel__button-wrapper">
+        <p
+          className="model-panel__button"
+          onClick={() => props.setInputFields(rows)}
+        >
+          generate fields
+        </p>
+      </div>
     </div>
   )
 

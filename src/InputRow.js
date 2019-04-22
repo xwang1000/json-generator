@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 
 const InputRow = props => {
   const { name, type } = props.field
@@ -16,22 +16,24 @@ const InputRow = props => {
   const renderInputBox = () => {
     switch (type) {
       case 'text': 
-        return <input type="text" value={value} onChange={e => handleChange(e.target.value)} />
+        return <input type="text" value={value} onChange={e => handleChange(e.target.value)} placeholder={name} />
       case 'textarea':
-        return <textarea value={value} onChange={e => handleChange(e.target.value)}></textarea>
+        return <textarea value={value} onChange={e => handleChange(e.target.value)} placeholder={name}></textarea>
       case 'boolean':
-        return <input type="checkbox" value={value} onChange={e => handleChange(e.target.checked)} />
+        return (
+          <div className="input-row__boolean">
+            <span>{name}</span>
+            <input type="checkbox" value={value} onChange={e => handleChange(e.target.checked)} />  
+          </div>
+        )
       default: 
         return `Sorry, cannot find the corresponding input type: ${type}`
     }
   }
 
   return (
-    <div>
-      <label>
-        {name}
-        {renderInputBox()}
-      </label>
+    <div className="input-row">
+      {renderInputBox()}
     </div>
   )
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import InputRow from './InputRow'
 import { getArrow } from './utils'
+import './InputPanel.css'
 
 const InputPanel = props => {
   const [isOpen, setIsOpen] = useState(true)
@@ -24,7 +25,9 @@ const InputPanel = props => {
   const renderForm = (
     <form onSubmit={onSubmit}>
       {renderInputRows}
-      <input type="submit" value="add object" />
+      <div className="input-panel__form__submit-wrapper">
+        <input className="input-panel__form__submit" type="submit" value="add to results" />
+      </div>
     </form>
   )
 

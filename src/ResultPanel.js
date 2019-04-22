@@ -45,6 +45,9 @@ const ResultPanel = props => {
             onClick={copyToClipboard}>
             copy
           </span>
+          <span className="option save">
+            save
+          </span>
         </span>
       )
     }

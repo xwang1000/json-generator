@@ -30,10 +30,8 @@ const App = () => {
   return (
     <div className="app">
         <div className="app__left">
-          <h1> 
-            JSON Generator
-            <span className="subtitle">your data entry helper</span>
-          </h1>
+          <h1>JSON Generator</h1>
+          <p className="subtitle">your data entry helper</p>
           <ModelPanel setInputFields={setInputFields} />
           <InputPanel setInputFields={setInputFields} addObjectToDisplay={addObjectToDisplay} fields={inputFields} />
           <OutputPanel fields={inputFields} output={output()} />
