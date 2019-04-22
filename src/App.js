@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import InputPanel from './InputPanel'
 import ModelPanel from './ModelPanel'
 import OutputPanel from './OutputPanel'
@@ -8,13 +8,22 @@ import './App.css'
 const App = () => {
   const [inputFields, setInputFields] = useState([])
   const [display, setDisplay] = useState([])
-  
+  const displayStored = JSON.parse(localStorage.getItem("display"))
+
+  useEffect(() => displayStored !== null && setDisplay(displayStored)
+  , [])
+
   const output = () => {
     const outputObject = {}
     inputFields.forEach(field => {
       outputObject[field.name] = field.value
     })
     return outputObject
+  }
+
+  const clearResults = () => {
+    setDisplay([])
+    localStorage.setItem('display', null)
   }
 
   const addObjectToDisplay = () => {
@@ -27,6 +36,11 @@ const App = () => {
     setDisplay(newDisplay)
   }
 
+  const saveToLocal = () => {
+    localStorage.setItem('display', JSON.stringify(display))
+    localStorage.setItem('fields', JSON.stringify(inputFields))
+  }
+
   return (
     <div className="app">
         <div className="app__left">
@@ -37,7 +51,12 @@ const App = () => {
           <OutputPanel fields={inputFields} output={output()} />
         </div>
         <div className="app__right">
-          <ResultPanel display={display} clearResults={() => setDisplay([])} deleteDisplayRow={deleteDisplayRow} />
+          <ResultPanel 
+            display={display} 
+            clearResults={clearResults} 
+            deleteDisplayRow={deleteDisplayRow}
+            saveToLocal={saveToLocal}
+          />
         </div>
     </div>
   )

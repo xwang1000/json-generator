@@ -37,15 +37,20 @@ const ResultPanel = props => {
         <span className="options">
           <span 
             className="option clear"
-            onClick={clearResults}>
+            onClick={clearResults}
+          >
             clear
           </span>
           <span 
             className="option copy"
-            onClick={copyToClipboard}>
+            onClick={copyToClipboard}
+          >
             copy
           </span>
-          <span className="option save">
+          <span 
+            className="option save"
+            onClick={props.saveToLocal}
+          >
             save
           </span>
         </span>
