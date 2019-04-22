@@ -38,7 +38,6 @@ const App = () => {
 
   const saveToLocal = () => {
     localStorage.setItem('display', JSON.stringify(display))
-    localStorage.setItem('fields', JSON.stringify(inputFields))
   }
 
   return (
