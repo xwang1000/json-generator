@@ -36,6 +36,16 @@ const ResultPanel = props => {
     }, TIME_OUT)
   }
 
+  const [theme, setTheme] = useState('')
+  const renderThemeOptions = (
+    <p>
+      <span onClick={() => setTheme('docco')}>Light</span> | 
+      <span onClick={() => setTheme('dark')}>Dark</span>
+      <span onClick={() => setTheme('')}>Original</span>
+
+    </p>
+  )
+
   const renderOptions = () => {
     if (display.length > 0) {
       return (
@@ -70,7 +80,8 @@ const ResultPanel = props => {
         object={object} 
         isLastItem={index === display.length - 1} 
         index={index} 
-        deleteRow={() => deleteDisplayRow(index)} 
+        deleteRow={() => deleteDisplayRow(index)}
+        theme={theme} 
       />
     ))
   }
@@ -81,6 +92,7 @@ const ResultPanel = props => {
         Records ({display.length})
         {renderOptions()}
       </h2>
+      {renderThemeOptions}
       <p className="result-panel__message">
         {copySuccess && 'copied to clipboard!'}
         {saveSuccess && 'saved'}

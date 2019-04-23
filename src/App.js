@@ -11,8 +11,9 @@ const App = () => {
   // Initialize display array
   const [display, setDisplay] = useState([])
   const displayStored = JSON.parse(localStorage.getItem("display"))
-  useEffect(() => displayStored !== null && setDisplay(displayStored)
-  , [])
+  useEffect(() => {
+    displayStored !== null && setDisplay(displayStored)
+  }, [])
 
   // Convert input models to an object
   const output = () => {
