@@ -82,8 +82,8 @@ const ResultPanel = props => {
         {renderOptions()}
       </h2>
       <p className="result-panel__message">
-        {copySuccess && 'copied!'}
-        {saveSuccess && 'saved!'}
+        {copySuccess && 'copied to clipboard!'}
+        {saveSuccess && 'saved'}
       </p>
       <div className="result-panel__content">
         {renderRows()}

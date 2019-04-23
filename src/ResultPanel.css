@@ -1,8 +1,8 @@
 .result-panel__message {
   float: right;
-  font-weight: 500;
-  font-size: 1.3rem;
+  font-weight: 300;
+  font-size: 1rem;
   margin: 0;
   padding: 0;
-  opacity: .8;
+  opacity: .9;
 }
