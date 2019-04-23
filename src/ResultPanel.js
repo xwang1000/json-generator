@@ -1,22 +1,16 @@
 import React, { useState } from 'react'
 import ResultRow from './ResultRow'
+import './ResultPanel.css'
+
+// Display time for messages
+const TIME_OUT = 1200
 
 const ResultPanel = props => {
-  const [copySuccess, setCopySuccess] = useState(false)
+  // Destructure props
   const { display, clearResults, deleteDisplayRow } = props
 
-  const renderRows = () => {
-    return display.map((object, index) => (
-      <ResultRow 
-        key={index} 
-        object={object} 
-        isLastItem={index === display.length - 1} 
-        index={index} 
-        deleteRow={() => deleteDisplayRow(index)} 
-      />
-    ))
-  }
-
+  // Copy message indicator
+  const [copySuccess, setCopySuccess] = useState(false)
   const copyToClipboard = () => {
     const el = document.createElement('textarea')
     el.value = JSON.stringify(display, null, 4)
@@ -28,7 +22,18 @@ const ResultPanel = props => {
     
     setTimeout(() => {
       setCopySuccess(false)
-    }, 1500)
+    }, TIME_OUT)
+  }
+
+  // Save message indicator
+  const [saveSuccess, setSaveSuccess] = useState(false)
+  const save = () => {
+    props.saveToLocal()
+
+    setSaveSuccess(true)
+    setTimeout(() => {
+      setSaveSuccess(false)
+    }, TIME_OUT)
   }
 
   const renderOptions = () => {
@@ -49,7 +54,7 @@ const ResultPanel = props => {
           </span>
           <span 
             className="option save"
-            onClick={props.saveToLocal}
+            onClick={save}
           >
             save
           </span>
@@ -57,12 +62,29 @@ const ResultPanel = props => {
       )
     }
   }
+
+  const renderRows = () => {
+    return display.map((object, index) => (
+      <ResultRow 
+        key={index} 
+        object={object} 
+        isLastItem={index === display.length - 1} 
+        index={index} 
+        deleteRow={() => deleteDisplayRow(index)} 
+      />
+    ))
+  }
   
   return (
     <div className="result-panel">
-      <h2>Records ({display.length}){renderOptions()}</h2>
-
-      {copySuccess && 'copied!'}
+      <h2>
+        Records ({display.length})
+        {renderOptions()}
+      </h2>
+      <p className="result-panel__message">
+        {copySuccess && 'copied!'}
+        {saveSuccess && 'saved!'}
+      </p>
       <div className="result-panel__content">
         {renderRows()}
       </div>
