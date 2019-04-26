@@ -65,6 +65,12 @@ const ResultPanel = props => {
     }
   }
 
+  const renderThemes = () => {
+    if (display.length > 0) {
+      return <ThemePanel setTheme={setTheme} />
+    }
+  }
+
   const renderRows = () => {
     return display.map((object, index) => (
       <ResultRow 
@@ -84,7 +90,7 @@ const ResultPanel = props => {
         Records ({display.length})
         {renderOptions()}
       </h2>
-      <ThemePanel setTheme={setTheme} />
+      {renderThemes()}
       <p className="result-panel__message">
         {copySuccess && 'copied to clipboard!'}
         {saveSuccess && 'saved'}

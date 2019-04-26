@@ -14,23 +14,7 @@ const getUniqueId = getUniqueIdGenerator()
 const ModelPanel = props => {
   const inputTypes = ['text', 'textarea', 'boolean', 'number']
   const [isOpen, setIsOpen] = useState(true)
-  const [rows, setRows] = useState([
-    { 
-      id: getUniqueId(),
-      type: 'text',
-      name: 'Chinese'
-    },
-    {
-      id: getUniqueId(),
-      type: 'text',
-      name: 'English'
-    },
-    {
-      id: getUniqueId(),
-      type: 'boolean',
-      name: 'Modern'
-    }
-  ])
+  const [rows, setRows] = useState([])
 
   const [inputType, setInputType] = useState('text')
   const [inputName, setInputName] = useState('')
