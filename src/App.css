@@ -114,15 +114,19 @@ h2 {
   transition: all .2s ease;
 }
 
+.result-panel__row {
+  margin: 0;
+}
+
 .result-panel__row:hover {
   cursor: pointer;
   color: red;
-  transform: scale(1.01);
-  transition: all .1s ease;
+  font-weight: 700;
+  transition: all .4s ease;
 }
 
 .result-panel__row:active {
-  transform: scale(.99);
+  font-weight: 500;
   color: #b50101;
   transition: all .2s ease;
 }
@@ -152,3 +156,6 @@ h2 {
   color: blue;
 }
 
+pre {
+  margin: 0;
+}
