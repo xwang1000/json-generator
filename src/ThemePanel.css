@@ -13,7 +13,7 @@
 .theme-panel__block {
   display: inline-block;
   background-color: white;
-  opacity: .3;
+  opacity: .4;
   color: black;
   margin: 5px;
   margin-left: 0;
@@ -22,6 +22,7 @@
 
 .theme-panel__block:hover {
   cursor: pointer;
+  opacity: .9;
 }
 
 html {
