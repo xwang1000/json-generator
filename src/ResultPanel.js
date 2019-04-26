@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ResultRow from './ResultRow'
+import ThemePanel from './ThemePanel'
 import './ResultPanel.css'
 
 // Display time for messages
@@ -8,6 +9,7 @@ const TIME_OUT = 1200
 const ResultPanel = props => {
   // Destructure props
   const { display, clearResults, deleteDisplayRow } = props
+  const [theme, setTheme] = useState({})
 
   // Copy message indicator
   const [copySuccess, setCopySuccess] = useState(false)
@@ -35,16 +37,6 @@ const ResultPanel = props => {
       setSaveSuccess(false)
     }, TIME_OUT)
   }
-
-  const [theme, setTheme] = useState('')
-  const renderThemeOptions = (
-    <p>
-      <span onClick={() => setTheme('docco')}>Light</span> | 
-      <span onClick={() => setTheme('dark')}>Dark</span>
-      <span onClick={() => setTheme('')}>Original</span>
-
-    </p>
-  )
 
   const renderOptions = () => {
     if (display.length > 0) {
@@ -92,7 +84,7 @@ const ResultPanel = props => {
         Records ({display.length})
         {renderOptions()}
       </h2>
-      {renderThemeOptions}
+      <ThemePanel setTheme={setTheme} />
       <p className="result-panel__message">
         {copySuccess && 'copied to clipboard!'}
         {saveSuccess && 'saved'}
