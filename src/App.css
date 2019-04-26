@@ -29,6 +29,7 @@ h2 {
 
 .app {
   display: flex;
+  flex-direction: row;
 }
 
 .app__left {
@@ -47,6 +48,24 @@ h2 {
   padding: 0 20px;
   position: relative;
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 940px) {
+
+  html {
+    font-size: 80%;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .app__left {
+    height: auto;
+    overflow-y: auto;
+    padding: 20px;
+    padding-top: 0;
+  }
 }
 
 .model-panel {
