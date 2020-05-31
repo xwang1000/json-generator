@@ -1,3 +1,15 @@
+.model-panel {
+  background-color: var(--color-purple-1);
+}
+
+.expandable-panel.model-panel:before {
+  content: unset;
+}
+
+.expandable-panel.model-panel:after {
+  background-color: var(--color-purple-1);
+}
+
 .model-row, .model-panel__form {
   display: flex;
   margin: 10px 0;
@@ -78,4 +90,10 @@
 .model-panel__button:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+.submit-button {
+  font-size: 2rem;
+  padding: 0 12px;
+  border: unset;
 }

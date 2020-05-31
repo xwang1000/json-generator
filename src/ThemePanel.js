@@ -22,7 +22,7 @@ const ThemePanel = props => {
     const optionBlocks = []
     for (let name in options) {
       optionBlocks.push(
-        <div className="theme-panel__block" onClick={() => setTheme(options[name])}>{name}</div>
+        <div key={name} className="theme-panel__block" onClick={() => setTheme(options[name])}>{name}</div>
       )
     }
 

@@ -1,5 +1,9 @@
 .input-panel {
-  background-color: white;
+  background-color: var(--color-purple-2);
+}
+
+.expandable-panel.input-panel:after {
+  background-color: var(--color-purple-2);
 }
 
 .input-panel__body {

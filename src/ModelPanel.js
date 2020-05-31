@@ -55,6 +55,7 @@ const ModelPanel = props => {
           onChange={handleInputNameChange} 
           placeholder="name of your new input field" 
         />
+        <input className="submit-button" type="submit" value="+" />
       </form>
     )
   }

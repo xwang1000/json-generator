@@ -31,9 +31,9 @@ const App = () => {
   }
 
   // Add new record to display
-  const addObjectToDisplay = () => 
+  const addObjectToDisplay = () => {
     setDisplay([...display, output()])
-  
+  }
   
   // Remove indexed row
   const deleteDisplayRow = index => {
@@ -49,9 +49,10 @@ const App = () => {
   return (
     <div className="app">
         <div className="app__left">
-          <h1>JSON Generator</h1>
-          <p className="subtitle">your data entry helper</p>
-          
+          <div className="app__left__header">
+            <h1>JSON Generator</h1>
+            <p className="subtitle">your data entry helper</p>    
+          </div>
           <ModelPanel 
             setInputFields={setInputFields} 
           />

@@ -23,7 +23,7 @@ const InputPanel = props => {
   }
 
   const renderForm = (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="expandable-panel__body">
       {renderInputRows}
       <div className="input-panel__form__submit-wrapper">
         <input className="input-panel__form__submit" type="submit" value="add to results" />
@@ -42,11 +42,12 @@ const InputPanel = props => {
   )
 
   return (
+    fields.length > 0 &&
     <div className="input-panel expandable-panel">
       <h2 onClick={() => setIsOpen(!isOpen)}>
         plug in your data  {getArrow(isOpen)}
       </h2>
-      {isOpen && renderBody}
+      {isOpen && renderForm}
     </div>
   )
 }
