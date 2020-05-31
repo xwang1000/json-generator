@@ -49,22 +49,24 @@ const App = () => {
   return (
     <div className="app">
         <div className="app__left">
-          <div className="app__left__header">
-            <h1>JSON Generator</h1>
-            <p className="subtitle">your data entry helper</p>    
+          <div className="app__left__container">
+            <div className="app__left__header">
+              <h1>JSON Generator</h1>
+              <p className="subtitle">your data entry helper</p>    
+            </div>
+            <ModelPanel 
+              setInputFields={setInputFields} 
+            />
+            <InputPanel
+              setInputFields={setInputFields}
+              addObjectToDisplay={addObjectToDisplay}
+              fields={inputFields}
+            />
+            <OutputPanel
+              fields={inputFields} 
+              output={output()} 
+            />
           </div>
-          <ModelPanel 
-            setInputFields={setInputFields} 
-          />
-          <InputPanel
-            setInputFields={setInputFields}
-            addObjectToDisplay={addObjectToDisplay}
-            fields={inputFields}
-          />
-          <OutputPanel
-            fields={inputFields} 
-            output={output()} 
-          />
         </div>
 
         <div className="app__right">

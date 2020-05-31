@@ -87,7 +87,7 @@ const ResultPanel = props => {
   return (
     <div className="result-panel">
       <h2>
-        Records ({display.length})
+        Result ({display.length})
         {renderOptions()}
       </h2>
       {renderThemes()}

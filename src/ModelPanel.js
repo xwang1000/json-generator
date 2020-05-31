@@ -39,6 +39,11 @@ const ModelPanel = props => {
     addRow(row)
   }
 
+  const handleGenerateButton = e => {
+    e.preventDefault()
+    props.setInputFields(rows)
+  }
+
   const renderRows = () => 
     rows.map(row => 
       <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
@@ -61,17 +66,22 @@ const ModelPanel = props => {
   }
 
   const renderBody = (
-    <div className="model-panel__body">
+    <div className="expandable-panel__body">
+      <div className="model-row model-row--header">
+        <div className="model-row__type">data type</div>
+        <div className="model-row__name">field name</div>
+      </div>
       {renderRows()}
       {renderForm()}
 
       <div className="model-panel__button-wrapper">
-        <p
-          className="model-panel__button"
-          onClick={() => props.setInputFields(rows)}
+        <a
+          href="/"
+          className="button--theme"
+          onClick={handleGenerateButton}
         >
           generate fields
-        </p>
+        </a>
       </div>
     </div>
   )

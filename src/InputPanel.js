@@ -26,7 +26,7 @@ const InputPanel = props => {
     <form onSubmit={onSubmit} className="expandable-panel__body">
       {renderInputRows}
       <div className="input-panel__form__submit-wrapper">
-        <input className="input-panel__form__submit" type="submit" value="add to results" />
+        <a href="/" className="button--theme" onClick={onSubmit}>add to results</a>
       </div>
     </form>
   )

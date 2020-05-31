@@ -5,6 +5,7 @@
   --color-purple-2: #6772e5;
   --color-purple-3: #7795f8;
   --color-purple-4: #3a3c66;
+  --color-highlight: rgb(246, 216, 122);
 }
 
 body {
@@ -58,6 +59,11 @@ h2 {
   bottom: 0;
   background: var(--color-purple);
   transform: skewY(-5deg);
+}
+
+.app__left__container {
+  max-width: 700px;
+  margin: auto;
 }
 
 .app__right {
@@ -145,6 +151,11 @@ h2 {
   border-top-left-radius: 3px;
 }
 
+.expandable-panel__body {
+  padding: 10px 35px;
+  padding-bottom: 30px;
+}
+
 .expandable-panel h2:hover {
   cursor: pointer;
   opacity: 1;
@@ -157,21 +168,14 @@ h2 {
   padding-top: 5px;
 }
 
-.model-panel__body {
-  border-top: 1px solid #eee;
-  padding: 10px;
-}
-
-.model-panel__form__type {
-  padding: 10px;
-}
-
 .output-panel {
   color: white;
   background-color: var(--color-purple-3);
   border-radius: 5px;
   padding-bottom: 30px;
-  margin: 20px 0;
+  margin: 20px auto;
+  width: 60%;
+  min-width: 400px;
   position: relative;
 }
 
@@ -230,4 +234,24 @@ h2 {
 
 pre {
   margin: 0;
+}
+
+.button--theme {
+  white-space: nowrap;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+  -webkit-box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+  background: #fff;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  color: #6772e5;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  transition: all .15s ease;
 }

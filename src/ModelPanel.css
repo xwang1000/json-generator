@@ -10,72 +10,99 @@
   background-color: var(--color-purple-1);
 }
 
-.model-row, .model-panel__form {
+.model-row, 
+.model-panel__form {
   display: flex;
-  margin: 10px 0;
-  color: black;
+  color: #bbb;
   font-size: 1.1rem;
   font-weight: 300;
   overflow: hidden;
-  border: 1px solid #eee;
-  border-radius: 5px;
+  border-bottom: 1px solid var(--color-dark-purple);
   transition: all .2s ease;
 }
 
-.model-row:hover {
+.model-panel__form input {
+  background-color: transparent;
+}
+
+.model-row:not(.model-row--header):hover {
   font-weight: 400;
   cursor: pointer;
   transition: all .2s ease;
+  border-color: red;
 }
 
-.model-row:active {
+.model-row:not(.model-row--header):active {
   transform: scale(.99);
   transition: all .1s ease;
 }
 
-.model-row__type, .model-panel__form .dropdown {
-  flex: 1;
+.model-row__type,
+.model-panel__form .dropdown {
+  font-style: italic;
   width: 8rem;
   padding: 5px 10px;
-  font-style: italic;
+  flex: 1;
+  border-right: 1px solid var(--color-dark-purple);
+}
+
+.model-row--header {
+  font-size: 1.2rem;
+  color: var(--color-purple-3);
+  background-color: var(--color-dark-purple);
+}
+
+.model-row--header .model-row__type {
+  border-right: 1px solid var(--color-purple-1);
 }
 
 .model-row__name {
-  flex: 2;
   padding: 5px 10px;
-  border-left: 1px solid #eee;
+  flex: 2;
+}
+
+.model-panel__form__type {
+  padding: 10px;
 }
 
 .model-panel__form {
-  margin-top: 25px;
-  background-color: white;
-  border: 1px solid #eee;
+  background-color: var(--color-purple-2);
+  border-bottom: none;
+}
+
+.model-panel__form:focus-within {
+  outline: solid var(--color-highlight);
+}
+
+.model-panel__form:focus-within .submit-button {
+  color: var(--color-highlight);
+  transform: scale(1.4);
 }
 
 .model-panel__form__name {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding-left: 9px;
+  margin: 5px 0;
+  border: none;
   flex: 2;
   outline: none;
-  border: none;
-  margin: 5px 0;
-  font-size: 1rem;
-  font-weight: 300;
-  padding-left: 5px;
 }
 
 .model-panel__form .dropdown {
-  border-right: 1px solid #eee;
-  padding-right: 0;
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: white;
+  padding-right: 25px;
 }
 
-::placeholder {
-  color: black;
+.model-panel__form ::placeholder {
+  color: white;
 }
 
 .model-panel__button-wrapper {
   text-align: right;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .model-panel__button {
@@ -93,7 +120,13 @@
 }
 
 .submit-button {
+  color: white;
   font-size: 2rem;
   padding: 0 12px;
   border: unset;
+  transition: 0.2s all ease;
+}
+
+.submit-button:hover {
+  cursor: pointer;
 }
