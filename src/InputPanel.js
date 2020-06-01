@@ -31,15 +31,15 @@ const InputPanel = props => {
     </form>
   )
 
-  const renderEmptyBody = (
-    <p className="input-panel__body__waiting">waiting for input modeling...</p>
-  )
+  // const renderEmptyBody = (
+  //   <p className="input-panel__body__waiting">waiting for input modeling...</p>
+  // )
+  // const renderBody = (
+  //   <div className="input-panel__body">
+  //     {fields.length > 0 ? renderForm : renderEmptyBody}
+  //   </div>
+  // )
 
-  const renderBody = (
-    <div className="input-panel__body">
-      {fields.length > 0 ? renderForm : renderEmptyBody}
-    </div>
-  )
 
   return (
     fields.length > 0 &&

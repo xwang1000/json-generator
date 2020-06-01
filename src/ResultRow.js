@@ -1,4 +1,5 @@
 import React from 'react'
+import IosTrash from 'react-ionicons/lib/IosTrash'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
 const isEmptyObject = object => 
@@ -26,12 +27,19 @@ const ResultRow = props => {
     
   }
 
+  const deleteHandler = e => {
+    e.preventDefault()
+    deleteRow()
+  }
+
   return (
     <pre
       className="result-panel__row" 
-      onClick={deleteRow}
     >
       {renderRow()}
+      <a href="/" className="model-row__icon" onClick={deleteHandler}>
+        <IosTrash color="#bbbbbb" />
+      </a>
     </pre>
   )
   

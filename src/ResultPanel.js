@@ -86,17 +86,19 @@ const ResultPanel = props => {
   
   return (
     <div className="result-panel">
-      <h2>
-        Result ({display.length})
-        {renderOptions()}
-      </h2>
-      {renderThemes()}
-      <p className="result-panel__message">
-        {copySuccess && 'copied to clipboard!'}
-        {saveSuccess && 'saved'}
-      </p>
-      <div className="result-panel__content">
-        {renderRows()}
+      <div className="result-panel__container">
+        <h2>
+          Result ({display.length})
+          {renderOptions()}
+        </h2>
+        {renderThemes()}
+        <p className="result-panel__message">
+          {copySuccess && 'copied to clipboard!'}
+          {saveSuccess && 'saved'}
+        </p>
+        <div className="result-panel__content">
+          {renderRows()}
+        </div>
       </div>
     </div>
   )

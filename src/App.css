@@ -6,6 +6,7 @@
   --color-purple-3: #7795f8;
   --color-purple-4: #3a3c66;
   --color-highlight: rgb(246, 216, 122);
+  --color-error: #e05046;
 }
 
 body {
@@ -184,29 +185,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-.result-panel__content {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5rem;
-  transition: all .2s ease;
-}
-
-.result-panel__row {
-  margin: 0;
-}
-
-.result-panel__row:hover {
-  cursor: pointer;
-  color: red;
-  font-weight: 700;
-  transition: all .4s ease;
-}
-
-.result-panel__row:active {
-  font-weight: 500;
-  color: #b50101;
-  transition: all .2s ease;
-}
-
 .options {
   float: right;
 }
@@ -254,4 +232,9 @@ pre {
   text-decoration: none;
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
+}
+
+.button--theme:hover {
+  color: #7795f8;
+  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
 }

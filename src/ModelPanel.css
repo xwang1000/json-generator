@@ -12,6 +12,7 @@
 
 .model-row, 
 .model-panel__form {
+  position: relative;
   display: flex;
   color: #bbb;
   font-size: 1.1rem;
@@ -23,18 +24,6 @@
 
 .model-panel__form input {
   background-color: transparent;
-}
-
-.model-row:not(.model-row--header):hover {
-  font-weight: 400;
-  cursor: pointer;
-  transition: all .2s ease;
-  border-color: red;
-}
-
-.model-row:not(.model-row--header):active {
-  transform: scale(.99);
-  transition: all .1s ease;
 }
 
 .model-row__type,
@@ -59,6 +48,21 @@
 .model-row__name {
   padding: 5px 10px;
   flex: 2;
+}
+
+.model-row__icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-row__icon:hover svg {
+  fill: var(--color-error);
 }
 
 .model-panel__form__type {

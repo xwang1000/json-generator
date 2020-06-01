@@ -6,3 +6,19 @@
   padding: 0;
   opacity: .9;
 }
+
+.result-panel__content {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5rem;
+  transition: all .2s ease;
+}
+
+.result-panel__row {
+  margin: 0;
+  position: relative;
+}
+
+.result-panel__container {
+  max-width: 700px;
+  margin: auto;
+}
