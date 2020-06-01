@@ -18,53 +18,58 @@
 .input-row {
   display: flex;
   font-size: 1rem;
+  background-color: var(--color-purple-1);
 }
 
-.input-row input, .input-row textarea, .input-row__boolean {
-  width: 100%;
-  border: 1px solid #eee;
-  margin: 10px 0;
+.input-row:not(:last-child) {
+  border-bottom: 1px solid var(--color-purple-2);
+}
+
+.input-row input {
+  background-color: unset;
+  color: white;
+}
+
+.input-row input:focus,
+.input-row textarea:focus {
+  outline: solid var(--color-highlight);
+}
+
+.input-row ::placeholder {
+  color: white;
+}
+
+.input-row input,
+.input-row textarea,
+.input-row__boolean {
+  border: unset;
   padding: 10px;
   font-size: 1rem;
   font-weight: 300;
-  border-radius: 5px;
   outline: none;
 }
 
-.input-row input:hover, .input-row textarea:hover, .input-row__boolean:hover {
-  border: 1px solid lightgrey;
+.input-row input[type=text],
+.input-row input[type=number],
+.input-row textarea {
+  flex: 2;
+  background-color: unset;
+  color: white;
 }
 
 .input-row__boolean {
   display: flex;
-}
-
-.input-row__boolean input {
-  margin: auto 10px;
-}
-
-::placeholder, .input-row__boolean span  {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  opacity: .4;
+  margin: 0;
 }
 
 .input-panel__form__submit-wrapper {
   text-align: right;
+  margin-top: 30px;
 }
 
-.input-panel__form__submit {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  color: var(--app-color-main);
-  text-decoration: underline;
-  font-size: 1.1rem;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  font-weight: 300;
-  opacity: .8;
-}
-
-.input-panel__form__submit:hover {
-  cursor: pointer;
-  opacity: 1;
+.input-row__label {
+  color: white;
+  width: 8rem;
+  padding: 5px 10px;
+  border-right: 1px solid var(--color-purple-2);
 }

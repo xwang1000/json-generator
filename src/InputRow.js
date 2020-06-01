@@ -33,7 +33,6 @@ const InputRow = props => {
       case 'boolean':
         return (
           <div className="input-row__boolean">
-            <span>{name}</span>
             <input type="checkbox" value={value} onChange={e => handleChange(e.target.checked)} />  
           </div>
         )
@@ -48,6 +47,9 @@ const InputRow = props => {
 
   return (
     <div className="input-row">
+      <div className="input-row__label">
+        {name}
+      </div>
       {renderInputBox()}
     </div>
   )

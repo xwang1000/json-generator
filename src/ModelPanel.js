@@ -52,13 +52,16 @@ const ModelPanel = props => {
   const renderForm = () => {
     return (
       <form className="model-panel__form" onSubmit={handleSubmit}>
-        <DropDown onChange={setInputType} options={inputTypes} />
+        <DropDown
+          onChange={setInputType}
+          options={inputTypes}
+        />
         <input 
           className="model-panel__form__name" 
           type="text" 
           value={inputName} 
           onChange={handleInputNameChange} 
-          placeholder="name of your new input field" 
+          autoFocus
         />
         <input className="submit-button" type="submit" value="+" />
       </form>
