@@ -63,13 +63,13 @@ const ModelPanel = props => {
     return (
       <form className="model-panel__form" onSubmit={handleSubmit}>
         <input 
-          className="model-panel__form__name" 
+          className="model-panel__form__name model__row__left" 
           type="text" 
           value={inputName} 
           onChange={handleInputNameChange} 
           autoFocus
         />
-        <div className="dropdown-button-wrapper">
+        <div className="model__row__right">
           <DropDown
             onChange={setInputType}
             options={inputTypes}
@@ -83,8 +83,16 @@ const ModelPanel = props => {
   const renderBody = (
     <div className="expandable-panel__body">
       <div className="model-row model-row--header">
-        <div className="model-row__name">field name</div>
-        <div className="model-row__type">data type</div>
+        <div className="model-row__name model__row__left">
+          <span className="model-row__value">
+            field name
+          </span>
+        </div>
+        <div className="model-row__type model__row__right">
+          <span className="model-row__value">
+            data type
+          </span>
+        </div>
       </div>
       {renderRows()}
       {renderForm()}
