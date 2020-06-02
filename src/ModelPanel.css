@@ -135,7 +135,7 @@
 }
 
 .model__row__right {
-  flex: 1;
+  flex: 2;
   display: flex;
   justify-content: space-between;
 }
