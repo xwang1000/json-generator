@@ -33,7 +33,7 @@
   width: 8rem;
   padding: 5px 10px;
   flex: 1;
-  border-right: 1px solid var(--color-purple-1);
+  border-left: 1px solid var(--color-purple-1);
 }
 
 .model-row--header {
@@ -75,21 +75,21 @@
   border-bottom: none;
 }
 
-.model-panel__form:focus-within {
+.model-panel__form input:focus,
+.model-panel__form select:focus {
   outline: solid var(--color-highlight);
 }
 
-.model-panel__form:focus-within .submit-button {
+/* .model-panel__form:focus-within .submit-button {
   color: var(--color-highlight);
   transform: scale(1.4);
-}
+} */
 
 .model-panel__form__name {
   color: white;
   font-size: 1.2rem;
   font-weight: 300;
-  padding-left: 9px;
-  margin: 5px 0;
+  padding-left: 18px;
   border: none;
   flex: 2;
   outline: none;
@@ -98,7 +98,6 @@
 .model-panel__form .dropdown {
   background-color: transparent;
   color: white;
-  padding-right: 27px;
 }
 
 .model-panel__form ::placeholder {
@@ -132,6 +131,15 @@
   transition: 0.2s all ease;
 }
 
+.submit-button:focus {
+  outline-offset: -3px;
+}
+
 .submit-button:hover {
   cursor: pointer;
+}
+
+.dropdown-button-wrapper {
+  display: flex;
+  width: 184px;
 }

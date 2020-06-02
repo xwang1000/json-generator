@@ -12,8 +12,8 @@ const ModelRow = props => {
 
   return (
     <div className="model-row">
-      <div className="model-row__type">{type}</div>
       <div className="model-row__name">{name}</div>
+      <div className="model-row__type">{type}</div>
       <a href="/" className="model-row__icon" onClick={deleteHandler}>
         <IosTrash color="#bbbbbb" />
       </a>
