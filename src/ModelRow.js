@@ -6,7 +6,6 @@ const ModelRow = props => {
 
   const deleteHandler = (e) => {
     e.preventDefault()
-    console.log('clicked')
     props.deleteRow(id)
   }
 

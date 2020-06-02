@@ -237,6 +237,11 @@ pre {
   opacity: 0.8;
 }
 
+button {
+  border: unset;
+  font: unset;
+}
+
 .button--theme {
   white-space: nowrap;
   display: inline-block;
@@ -257,7 +262,20 @@ pre {
   transition: all .15s ease;
 }
 
-.button--theme:hover {
+.button--theme:not(.button--disabled):hover,
+.button--theme:not(.button--disabled):focus {
+  cursor: pointer;
   color: #7795f8;
   box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
 }
+
+.button--disabled {
+  filter: grayscale(100%);
+  opacity: 0.4;
+  box-shadow: unset;
+}
+
+.button--disabled:hover {
+  cursor: not-allowed;
+}
+

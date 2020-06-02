@@ -1,7 +1,13 @@
+// Modules
 import React, { useState } from 'react'
+import classNames from 'classnames'
+
+// Components
 import ModelRow from './ModelRow'
 import DropDown from './DropDown'
 import { getArrow } from './utils'
+
+// Styles
 import './ModelPanel.css'
 
 const getUniqueIdGenerator = () => {
@@ -48,6 +54,10 @@ const ModelPanel = props => {
     rows.map(row => 
       <ModelRow key={row.id} id={row.id} type={row.type} name={row.name} deleteRow={deleteRow}></ModelRow>
     )
+
+  const generateClasses = classNames('button--theme', {
+    'button--disabled': rows.length <= 0
+  })
   
   const renderForm = () => {
     return (
@@ -80,13 +90,13 @@ const ModelPanel = props => {
       {renderForm()}
 
       <div className="model-panel__button-wrapper">
-        <a
-          href="/"
-          className="button--theme"
+        <button
+          className={generateClasses}
           onClick={handleGenerateButton}
+          disabled={rows.length <= 0}
         >
           generate fields
-        </a>
+        </button>
       </div>
     </div>
   )
